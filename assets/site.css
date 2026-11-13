@@ -155,15 +155,15 @@ nav.mainnav a:hover,nav.mainnav a[aria-current="page"]{color:var(--clay)}
 .pagehero p{color:#e9dcc4;max-width:660px;margin:16px auto 0;font-size:18.5px}
 
 /* ---------- footer ---------- */
-footer{background:var(--ink);color:#d9cbae;padding:20px 0 0}
-.fgrid2{display:grid;grid-template-columns:1.5fr .75fr 1fr;gap:20px 32px;align-items:start;padding-bottom:14px} footer .ftag,footer .frate{font-size:13px;line-height:1.45;margin:0} footer .ftag{margin-top:8px} footer .frate{margin-top:6px} .fgrid2>div:nth-child(2) a{display:inline-block;padding:2px 0} .fgrid2>div:nth-child(2) a:not(:last-child)::after{content:" \00b7 ";color:#a68f68} .fgrid2>div:last-child p,.fgrid2>div:last-child a{display:inline;padding:0} .fgrid2>div:last-child p:not(:last-child)::after,.fgrid2>div:last-child a:not(:last-child)::after{content:" \00b7 ";color:#a68f68}
+footer{background:var(--ink);color:#d9cbae;padding:16px 0 0}
+.fgrid2{display:grid;grid-template-columns:1.5fr .75fr 1fr;gap:20px 32px;align-items:start;padding-bottom:10px} footer .ftag,footer .frate{font-size:13px;line-height:1.45;margin:0} footer .ftag{margin-top:8px} footer .frate{margin-top:6px} .fgrid2>div:nth-child(2) a{display:inline-block;padding:2px 0} .fgrid2>div:nth-child(2) a:not(:last-child)::after{content:" \00b7 ";color:#a68f68} .fgrid2>div:last-child p,.fgrid2>div:last-child a{display:inline;padding:0}.fgrid2>div:last-child a{white-space:nowrap} .fgrid2>div:last-child p:not(:last-child)::after,.fgrid2>div:last-child a:not(:last-child)::after{content:" \00b7 ";color:#a68f68}
 footer .wordmark{color:#fff;font-size:23px;line-height:1.1}
 footer .wordmark small{color:#b7a582}
 footer h4{font-family:var(--sans);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#fff;margin-bottom:6px}
 footer a{color:#d9cbae;display:block;padding:2px 0}
 footer a:hover{color:#fff}
 footer p{font-size:13.5px;line-height:1.45}
-.fbottom{border-top:1px solid #4a3a28;padding:10px 0;text-align:center;font-size:12.5px;color:#a68f68}
+.fbottom{border-top:1px solid #4a3a28;padding:8px 0;text-align:center;font-size:12.5px;color:#a68f68}
 
 /* ---------- sticky mobile call bar ---------- */
 .callbar{display:none}
@@ -196,7 +196,7 @@ footer p{font-size:13.5px;line-height:1.45}
   .split{grid-template-columns:1fr}
   .split .txt h2,.split .txt .eyebrow{text-align:center}
   .trust .wrap{grid-template-columns:repeat(2,1fr)}
-  .fgrid2{grid-template-columns:1fr;gap:14px;text-align:center;padding-bottom:14px}
+  .fgrid2{grid-template-columns:1fr;gap:14px;text-align:center;padding-bottom:10px}
   footer a{text-align:center}
   .fgrid{grid-template-columns:1fr}
   .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:90;background:var(--white);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));gap:10px}
