@@ -215,19 +215,12 @@ footer p{font-size:15px}
 /* ---------- widget stacking (Emmanuel standard) ---------- */
 /* Chat bubble stays at the bottom-right corner; the voice widget
    (Tim's Landscape Concierge Widget, 6af6751390f7860d291fcf7d) sits
-   directly above it as one corner unit. Lifted by one bubble height
-   (~64px) + a 12px gap from its default bottom-right position. */
-chat-widget[widget-id="6af6751390f7860d291fcf7d"],
-chat-widget[data-widget-id="6af6751390f7860d291fcf7d"],
-iframe[src*="6af6751390f7860d291fcf7d"]{bottom:104px!important}
-/* The loader assigns widgetId as a JS property, not as a widget-id
-   attribute, so the voice widget (the 2nd <chat-widget> in the page,
-   embedded after the chat widget) is targeted by order instead. */
-chat-widget:nth-of-type(2){bottom:104px!important}
-/* bottom: on the host does not move the launcher (it is fixed inside
-   the widget's shadow DOM), so lift the voice widget with a transform
-   instead; one bubble height (~64px) + a 12px gap. This also cancels
-   the bottom: rule above for the same element. */
-chat-widget:nth-of-type(2){bottom:auto!important;transform:translateY(-76px)!important}
-/* TEMP DIAGNOSTIC (remove after verification): hide the 2nd chat-widget to confirm which widget it is. */
-chat-widget:nth-of-type(2){display:none!important}
+   directly above it as one corner unit. The HighLevel loader creates
+   a <chat-widget> element per widget and assigns its widgetId as a
+   JS property, not as a widget-id attribute, so the widgets are
+   targeted by order: live testing showed the voice widget is the
+   1st <chat-widget> in the page and the chat widget is the 2nd.
+   bottom: on the host does not move the launcher (it is fixed inside
+   the widget's shadow DOM), so the voice widget is lifted with a
+   transform: one bubble height (~64px) + a 12px gap. */
+chat-widget:nth-of-type(1){transform:translateY(-76px)!important}
