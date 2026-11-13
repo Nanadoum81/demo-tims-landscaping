@@ -52,19 +52,19 @@
   });
 })();
 
-// Widget stacking (Emmanuel standard): tag both widgets so
-// assets/site.css can lift it above the chat bubble. The HighLevel
+// Voice widget (Elena): tag the voice widget so
+// assets/site.css can position it. The HighLevel
 // loader creates one <chat-widget> host per widget and assigns its
-// widgetId as a JS property, not an attribute, and the two hosts are
+// widgetId as a JS property, not an attribute, and hosts are
 // appended in a load-order race, so DOM order cannot identify the
 // voice widget; its widgetId can.
 (function(){
   "use strict";
-  var VOICE_WIDGET_ID="6af6751390f7860d291fcf7d",CHAT_WIDGET_ID="6af6401a0fbf641fd173fe3a";
+  var VOICE_WIDGET_ID="6af6751390f7860d291fcf7d" ;
   function tagVoiceWidget(el){
-    if(!el||(el.hasAttribute("data-voice-widget")&&el.hasAttribute("data-chat-widget")))return;
+    if(!el||(el.hasAttribute("data-voice-widget") ))return;
     var id=el.widgetId||el.getAttribute("widget-id")||el.getAttribute("data-widget-id");
-    if(id===VOICE_WIDGET_ID)el.setAttribute("data-voice-widget","");else if(id===CHAT_WIDGET_ID)el.setAttribute("data-chat-widget","");
+    if(id===VOICE_WIDGET_ID)el.setAttribute("data-voice-widget",""); 
   }
   function scanWidgets(root){
     if(!root||!root.querySelectorAll)return;
@@ -87,12 +87,12 @@
     observer.observe(document.documentElement,{childList:true,subtree:true});
   }
   // The loader may create a host before assigning its widgetId, so
-  // rescan briefly until both widgets are tagged.
+  // rescan briefly until the voice widget is tagged.
   var scans=0;
   var timer=setInterval(function(){
     scans++;
     scanWidgets(document);
-    if(scans>120||(document.querySelector("chat-widget[data-voice-widget]")&&document.querySelector("chat-widget[data-chat-widget]")))clearInterval(timer);
+    if(scans>120||(document.querySelector("chat-widget[data-voice-widget]") ))clearInterval(timer);
   },500);
 })();
 
