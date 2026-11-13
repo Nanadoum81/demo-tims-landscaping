@@ -229,3 +229,5 @@ chat-widget:nth-of-type(2){bottom:104px!important}
    instead; one bubble height (~64px) + a 12px gap. This also cancels
    the bottom: rule above for the same element. */
 chat-widget:nth-of-type(2){bottom:auto!important;transform:translateY(-76px)!important}
+/* TEMP DIAGNOSTIC (remove after verification): hide the 2nd chat-widget to confirm which widget it is. */
+chat-widget:nth-of-type(2){display:none!important}
