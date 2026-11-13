@@ -212,23 +212,32 @@ footer p{font-size:15px}
   .hero h1,.hero .sub,.hero .proof,.estcard{animation:none}
   html{scroll-behavior:auto}
 }
+
 /* ---------- widget stacking (Emmanuel standard) ---------- */
 /* Chat bubble stays at the bottom-right corner; the voice widget
    (Tim's Landscape Concierge Widget, 6af6751390f7860d291fcf7d) sits
    directly above it as one corner unit. The HighLevel loader creates
    a <chat-widget> element per widget and assigns its widgetId as a
-   JS property, not as a widget-id attribute, so the widgets are
-   targeted by order: live testing showed the voice widget is the
-   1st <chat-widget> in the page and the chat widget is the 2nd.
-   bottom: on the host does not move the launcher (it is fixed inside
-   the widget's shadow DOM), so the voice widget is lifted with a
-   transform: one bubble height (~64px) + a 12px gap. */
-chat-widget:nth-of-type(1){transform:translateY(-76px)!important}
-/* TEST (remove if it does not work): the host is display:contents, so
-   bottom/transform on it do nothing. Give the voice host a fixed box
-   so its shadow-DOM launcher is positioned relative to the host. */
-chat-widget:nth-of-type(1){display:block!important;position:fixed!important;right:20px!important;bottom:100px!important;transform:none!important}
-/* TEST 2: a fixed ancestor alone does not move a fixed launcher;
-   only a transform (or filter) makes it the containing block. So give
-   the voice host a box AND a transform, anchored at the corner. */
-chat-widget:nth-of-type(1){display:block!important;position:fixed!important;right:0!important;bottom:0!important;transform:translateY(-76px)!important}
+   JS property, not as a widget-id attribute, and the two hosts are
+   appended in a load-order race, so CSS alone cannot tell voice from
+   chat: nth-of-type flips between loads and the widget-id attribute
+   selector never matches. assets/site.js identifies the voice widget
+   by its widgetId and tags it data-voice-widget; this rule lifts
+   only the tagged host. The host is display:contents by default, so
+   it first needs a fixed box; the transform on that box makes it
+   the containing block for the fixed launcher inside the widget's
+   shadow DOM. Lift = one bubble (~60px) + ~16px gap. */
+chat-widget[data-voice-widget]{display:block!important;position:fixed!important;right:0!important;bottom:0!important;transform:translateY(-76px)!important}
+
+
+
+
+
+
+
+
+
+
+
+
+
