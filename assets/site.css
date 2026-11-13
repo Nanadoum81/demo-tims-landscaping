@@ -224,3 +224,7 @@ footer p{font-size:15px}
    the widget's shadow DOM), so the voice widget is lifted with a
    transform: one bubble height (~64px) + a 12px gap. */
 chat-widget:nth-of-type(1){transform:translateY(-76px)!important}
+/* TEST (remove if it does not work): the host is display:contents, so
+   bottom/transform on it do nothing. Give the voice host a fixed box
+   so its shadow-DOM launcher is positioned relative to the host. */
+chat-widget:nth-of-type(1){display:block!important;position:fixed!important;right:20px!important;bottom:100px!important;transform:none!important}
