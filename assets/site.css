@@ -228,3 +228,7 @@ chat-widget:nth-of-type(1){transform:translateY(-76px)!important}
    bottom/transform on it do nothing. Give the voice host a fixed box
    so its shadow-DOM launcher is positioned relative to the host. */
 chat-widget:nth-of-type(1){display:block!important;position:fixed!important;right:20px!important;bottom:100px!important;transform:none!important}
+/* TEST 2: a fixed ancestor alone does not move a fixed launcher;
+   only a transform (or filter) makes it the containing block. So give
+   the voice host a box AND a transform, anchored at the corner. */
+chat-widget:nth-of-type(1){display:block!important;position:fixed!important;right:0!important;bottom:0!important;transform:translateY(-76px)!important}
