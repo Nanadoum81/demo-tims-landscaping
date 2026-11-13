@@ -220,3 +220,7 @@ footer p{font-size:15px}
 chat-widget[widget-id="6af6751390f7860d291fcf7d"],
 chat-widget[data-widget-id="6af6751390f7860d291fcf7d"],
 iframe[src*="6af6751390f7860d291fcf7d"]{bottom:104px!important}
+/* The loader assigns widgetId as a JS property, not as a widget-id
+   attribute, so the voice widget (the 2nd <chat-widget> in the page,
+   embedded after the chat widget) is targeted by order instead. */
+chat-widget:nth-of-type(2){bottom:104px!important}
