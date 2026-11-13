@@ -241,3 +241,22 @@ chat-widget[data-voice-widget]{display:block!important;position:fixed!important;
 
 
 
+
+
+/* ---------- mobile widget lift above sticky call bar ---------- */
+/* On phones (<=860px) the sticky .callbar is ~74px tall: 10px top +
+   10px bottom padding + a ~53px link (14px vertical padding + ~25px
+   text line, 16px/1.6) + 1px top border, inside body padding-bottom
+   150px. Raising the whole chat/voice unit by 84px clears the bar
+   by ~10px. The chat host gets the raised base with the same
+   fixed/!important host-override pattern as the voice host; its
+   translateY(0) adds no lift, it only makes the host the containing
+   block for the fixed launcher inside the widget's shadow DOM (the
+   same mechanism the voice host's translateY(-76px) uses). The
+   voice host keeps that translateY(-76px) from the raised 84px
+   base, so the ~18px gap and voice-above-chat order are preserved.
+   Desktop rules above are unchanged. */
+@media(max-width:860px){
+  chat-widget[data-chat-widget]{display:block!important;position:fixed!important;right:0!important;bottom:84px!important;transform:translateY(0)!important}
+  chat-widget[data-voice-widget]{bottom:84px!important}
+}
