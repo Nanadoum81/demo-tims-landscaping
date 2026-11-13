@@ -224,3 +224,8 @@ iframe[src*="6af6751390f7860d291fcf7d"]{bottom:104px!important}
    attribute, so the voice widget (the 2nd <chat-widget> in the page,
    embedded after the chat widget) is targeted by order instead. */
 chat-widget:nth-of-type(2){bottom:104px!important}
+/* bottom: on the host does not move the launcher (it is fixed inside
+   the widget's shadow DOM), so lift the voice widget with a transform
+   instead; one bubble height (~64px) + a 12px gap. This also cancels
+   the bottom: rule above for the same element. */
+chat-widget:nth-of-type(2){bottom:auto!important;transform:translateY(-76px)!important}
