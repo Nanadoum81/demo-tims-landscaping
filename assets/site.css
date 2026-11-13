@@ -212,3 +212,11 @@ footer p{font-size:15px}
   .hero h1,.hero .sub,.hero .proof,.estcard{animation:none}
   html{scroll-behavior:auto}
 }
+/* ---------- widget stacking (Emmanuel standard) ---------- */
+/* Chat bubble stays at the bottom-right corner; the voice widget
+   (Tim's Landscape Concierge Widget, 6af6751390f7860d291fcf7d) sits
+   directly above it as one corner unit. Lifted by one bubble height
+   (~64px) + a 12px gap from its default bottom-right position. */
+chat-widget[widget-id="6af6751390f7860d291fcf7d"],
+chat-widget[data-widget-id="6af6751390f7860d291fcf7d"],
+iframe[src*="6af6751390f7860d291fcf7d"]{bottom:104px!important}
